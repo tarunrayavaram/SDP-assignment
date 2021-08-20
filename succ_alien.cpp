@@ -17,20 +17,21 @@ string succ_alien(string n, string B)
 		bti[B[i]] = i+48;
 	}
 	int N = n.size();
-	string N1 = "";
+	string n1 = "";
 	for(int i=0;i<N;i++)
 	{
-		N1+=bti[N[i]];
+		n1+=bti[n[i]];
 	}
 	int carry = 1;
-	int i=0;
+	int i=N-1;
 	string result = "";
-	while(i<N)
+	while(i>=0)
 	{
-		int r = N1[i]-48+carry;
+		int r = n1[i]-48+carry;
 		carry = r/Bsize;
 		int rem = r%Bsize;
-		result+=itb[rem];
+		result+=itb[rem+48];
+		i--;
 	}
 	if(carry >= 1)
 	{
