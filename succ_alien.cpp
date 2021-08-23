@@ -2,7 +2,7 @@
 
 using namespace std;
 
-string convert_to_b(string n, map<char, char> itb)
+/*string convert_to_b(string n, map<char, char> itb)
 {
 	string n1 = "";
 	int N = n.size();
@@ -22,6 +22,17 @@ string convert_to_i(string b, map<char, char> bti)
                 b1+=bti[b[i]];
         }
         return b1;
+}*/
+
+string convert_to(string nb, map<char, char> mp)
+{
+        string nb1 = "";
+        int NB = nb.size();
+        for(int i=0;i<NB;i++)
+        {
+                nb1+=mp[nb[i]];
+        }
+        return nb1;
 }
 
 string succ_alien(string n, string B)
@@ -39,7 +50,7 @@ string succ_alien(string n, string B)
 		bti[B[i]] = i+48;
 	}
 	int N = n.size();
-	string n1 = convert_to_i(n,bti);
+	string n1 = convert_to(n,bti);
 	int carry = 1;
 	int i=N-1;
 	string result = "";
@@ -56,7 +67,7 @@ string succ_alien(string n, string B)
 		result+=itb[carry];
 	}
 	reverse(result.begin(), result.end());
-	result = convert_to_b(result,itb);
+	result = convert_to(result,itb);
 	return result;
 }
 
